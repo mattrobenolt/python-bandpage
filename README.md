@@ -105,8 +105,3 @@ This library allows you to configure the `CLIENT_ID` and `SECRET_KEY` inside you
 BANDPAGE_CLIENT_ID = 'abc'
 BANDPAGE_SECRET_KEY = 'xyz'
 ```
-
-
-## Response object
-```python
-bandpage.get('123', access_token=token)
