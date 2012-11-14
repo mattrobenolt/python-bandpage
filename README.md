@@ -85,7 +85,7 @@ When making a request for a specific `bid` or any connection, BandPage may respo
 ```python
 try:
   band = bandpage.get('123', access_token=token)
-except BandpageError:
+except bandpage.BandpageError:
   print "Oops, BandPage fail!"
 ```
 
