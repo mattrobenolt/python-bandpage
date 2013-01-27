@@ -13,7 +13,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='bandpage',
-    version='1.0.0',
+    version='1.0.1',
     author='Matt Robenolt',
     author_email='matt@ydekproductions.com',
     url='https://github.com/mattrobenolt/python-bandpage',
