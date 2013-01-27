@@ -8,6 +8,11 @@ bandpage.api
 
 import requests
 
+try:
+    import simplejson as json
+except ImportError:
+    import json  #noqa
+
 # Optional Django support
 try:
     from django.conf import settings as django_settings
@@ -57,7 +62,7 @@ def make_response(response):
     if response.status_code != 200:
         raise BandpageError(response.status_code)
 
-    return response.json
+    return json.loads(response.text)
 
 
 class Bandpage(object):
@@ -75,10 +80,10 @@ class Bandpage(object):
 
     def get_access_token(self, grant_type='client_credentials'):
         "Grab an OAuth access_token"
-        return self.request('POST', '/token',
+        return json.loads(self.request('POST', '/token',
             data={'client_id': self.client_id,
                   'grant_type': grant_type},
-            auth=(self.client_id, self.secret_key)).json
+            auth=(self.client_id, self.secret_key)).text)
 
     def get(self, endpoint, **kwargs):
         "Make a GET request to the Bandpage API"
